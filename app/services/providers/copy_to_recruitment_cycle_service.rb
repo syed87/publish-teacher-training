@@ -8,12 +8,12 @@ module Providers
       @logger = logger || Logger.new("/dev/null")
     end
 
-    def execute(provider:, new_recruitment_cycle:)
+    def execute(provider:, new_recruitment_cycle:, force: false)
       providers_count = 0
       sites_count = 0
       courses_count = 0
 
-      if provider.rollable?
+      if provider.rollable? || force
 
         ActiveRecord::Base.transaction do
           rolled_over_provider = new_recruitment_cycle.providers.find_by(provider_code: provider.provider_code)
