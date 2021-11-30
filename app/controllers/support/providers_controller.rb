@@ -51,6 +51,10 @@ module Support
       render layout: "provider_record"
     end
 
+    def remove_user
+      # Insert code to remove the user from the Organisation/Provider
+    end
+
   private
 
     def filtered_providers

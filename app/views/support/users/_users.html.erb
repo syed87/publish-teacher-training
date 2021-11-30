@@ -1,9 +1,10 @@
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">First name</th>
-      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Last name</th>
-      <th scope="col" class="govuk-table__header govuk-!-width-two-quarters">Email</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">First name</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-eighthr">Last name</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Email</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Actions</th>
     </tr>
   </thead>
 
@@ -18,7 +19,15 @@
         </td>
         <td class="govuk-table__cell">
           <span class="govuk-!-display-block govuk-!-margin-bottom-1">
-            <%= govuk_link_to user.email, support_user_path(user) %>
+            <%= user.email %>
+          </span>
+        </td>
+        <td class="govuk-table__cell">
+          <span class="govuk-!-display-block govuk-!-margin-bottom-1">
+            <%= govuk_button_to("Remove user from this provider",
+              # remove_user_from_provider_path(user),
+              method: :delete,
+              class: "govuk-button govuk-button--warning") %>
           </span>
         </td>
       </tr>
